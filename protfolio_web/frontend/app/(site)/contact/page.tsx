@@ -3,6 +3,7 @@ import { ContactMethods } from "@/components/contact/contact-methods";
 import { Container, Section } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { buildMetadata } from "@/lib/metadata";
+import { getSiteSettings } from "@/lib/sanity/content";
 
 export const metadata = buildMetadata({
   title: "Contact",
@@ -11,7 +12,9 @@ export const metadata = buildMetadata({
   path: "/contact",
 });
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const site = await getSiteSettings();
+
   return (
     <Section divided={false} className="pt-16 sm:pt-20 lg:pt-24">
       <Container className="flex flex-col gap-12">
@@ -24,8 +27,8 @@ export default function ContactPage() {
         />
 
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
-          <ContactForm />
-          <ContactMethods />
+          <ContactForm email={site.email} />
+          <ContactMethods email={site.email} socials={site.socials} />
         </div>
       </Container>
     </Section>

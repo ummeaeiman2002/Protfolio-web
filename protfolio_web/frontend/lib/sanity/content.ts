@@ -242,6 +242,7 @@ export async function getHomeContent(): Promise<HomeContent> {
   cacheLife("hours");
   cacheTag("home-page");
 
+  const settings = await getSiteSettings();
   let raw: RawHomePage | null = null;
 
   if (sanityClient) {
@@ -264,8 +265,8 @@ export async function getHomeContent(): Promise<HomeContent> {
       primaryCta: cta(hero?.primaryCta, HERO.primaryCta),
       secondaryCta: cta(hero?.secondaryCta, HERO.secondaryCta),
       portrait: {
-        src: text(hero?.portrait?.url, PROFILE_PHOTO.src),
-        alt: text(hero?.portrait?.alt, PROFILE_PHOTO.alt),
+        src: text(hero?.portrait?.url, settings.profilePhoto.src),
+        alt: text(hero?.portrait?.alt, settings.profilePhoto.alt),
       },
       byline: {
         name: text(hero?.byline?.name, SITE_NAME),
@@ -342,8 +343,8 @@ export async function getHomeContent(): Promise<HomeContent> {
       principles: list(raw?.about?.principles, [...ABOUT_CONTENT.principles]),
       caption: text(raw?.about?.caption, ABOUT_CONTENT.caption),
       portrait: {
-        src: text(raw?.about?.portrait?.url, PROFILE_PHOTO.src),
-        alt: text(raw?.about?.portrait?.alt, PROFILE_PHOTO.alt),
+        src: text(raw?.about?.portrait?.url, settings.profilePhoto.src),
+        alt: text(raw?.about?.portrait?.alt, settings.profilePhoto.alt),
       },
     },
     building: {

@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { MailIcon } from "@/components/ui/icons";
 import { Notice } from "@/components/ui/notice";
-import { CONTACT, PLACEHOLDER_NOTICE } from "@/data/site";
+import { PLACEHOLDER_NOTICE } from "@/data/site";
 import { isPlaceholderEmail } from "@/lib/utils";
 
 const AFTER_SENDING = [
@@ -10,24 +10,30 @@ const AFTER_SENDING = [
   "You get a reply at the email address you provide. No newsletter, no third-party sharing.",
 ];
 
-export function ContactMethods() {
-  const emailIsPlaceholder = isPlaceholderEmail(CONTACT.email);
+export function ContactMethods({
+  email,
+  socials,
+}: {
+  email: string;
+  socials: { label: string; href: string }[];
+}) {
+  const emailIsPlaceholder = isPlaceholderEmail(email);
 
   return (
     <div className="flex flex-col gap-5">
       <Card className="flex flex-col gap-4">
         <h2 className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">Email</h2>
         <a
-          href={`mailto:${CONTACT.email}`}
+          href={`mailto:${email}`}
           className="inline-flex items-center gap-2 text-base text-ink transition-colors hover:text-purple-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
         >
           <MailIcon className="text-[1.15rem] text-purple-soft" />
-          {CONTACT.email}
+          {email}
         </a>
 
-        {CONTACT.socials.length > 0 ? (
+        {socials.length > 0 ? (
           <ul className="flex flex-col gap-2 border-t border-border pt-4">
-            {CONTACT.socials.map((social) => (
+            {socials.map((social) => (
               <li key={social.href}>
                 <a
                   href={social.href}

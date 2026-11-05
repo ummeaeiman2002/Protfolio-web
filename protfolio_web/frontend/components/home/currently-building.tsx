@@ -3,9 +3,11 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRightIcon } from "@/components/ui/icons";
-import { CURRENTLY_BUILDING } from "@/data/content";
+import { getHomeContent } from "@/lib/sanity/content";
 
-export function CurrentlyBuilding() {
+export async function CurrentlyBuilding() {
+  const { building } = await getHomeContent();
+
   return (
     <Section id="building" labelledBy="building-title">
       <Container className="flex flex-col gap-12">
@@ -13,13 +15,13 @@ export function CurrentlyBuilding() {
           index="09"
           label="Currently building"
           headingId="building-title"
-          title="Always building something."
-          description="Only work that is verified and ready to be shown publicly is listed here."
+          title={building.title}
+          description={building.description}
         />
 
-        {CURRENTLY_BUILDING.length > 0 ? (
+        {building.items.length > 0 ? (
           <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {CURRENTLY_BUILDING.map((item) => (
+            {building.items.map((item) => (
               <li
                 key={item.title}
                 className="flex flex-col gap-3 rounded-xl border border-border bg-surface p-6"

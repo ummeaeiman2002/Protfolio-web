@@ -8,7 +8,6 @@ import { Input } from "@/components/ui/input";
 import { Notice } from "@/components/ui/notice";
 import { Select } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { CONTACT } from "@/data/site";
 import {
   BUDGET_RANGES,
   INQUIRY_LIMITS,
@@ -44,7 +43,7 @@ function optionLabel(
   return options.find((option) => option.value === value)?.label ?? "Not specified";
 }
 
-function buildMailto(values: InquiryValues): string {
+function buildMailto(values: InquiryValues, email: string): string {
   const name = values.name.trim();
   const subject = `Project inquiry — ${name}`;
 
@@ -57,10 +56,10 @@ function buildMailto(values: InquiryValues): string {
     values.message.trim(),
   ].join("\n");
 
-  return `mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  return `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
-export function ContactForm() {
+export function ContactForm({ email }: { email: string }) {
   const [values, setValues] = useState<InquiryValues>(INITIAL_VALUES);
   const [errors, setErrors] = useState<InquiryErrors>({});
   const [formError, setFormError] = useState<string | null>(null);
@@ -95,7 +94,7 @@ export function ContactForm() {
     setErrors({});
     setFormError(null);
 
-    const href = buildMailto(values);
+    const href = buildMailto(values, email);
     setMailtoHref(href);
     window.location.href = href;
   }
@@ -124,10 +123,10 @@ export function ContactForm() {
           </a>{" "}
           or email{" "}
           <a
-            href={`mailto:${CONTACT.email}`}
+            href={`mailto:${email}`}
             className="font-medium text-purple-soft underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
           >
-            {CONTACT.email}
+            {email}
           </a>{" "}
           directly.
         </p>

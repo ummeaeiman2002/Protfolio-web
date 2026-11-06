@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { MailIcon } from "@/components/ui/icons";
 import { Notice } from "@/components/ui/notice";
-import { PLACEHOLDER_NOTICE } from "@/data/site";
+import { PLACEHOLDER_NOTICE, RESUME_LABEL } from "@/data/site";
 import { isPlaceholderEmail } from "@/lib/utils";
 
 const AFTER_SENDING = [
@@ -13,9 +13,13 @@ const AFTER_SENDING = [
 export function ContactMethods({
   email,
   socials,
+  location,
+  resumeUrl,
 }: {
   email: string;
   socials: { label: string; href: string }[];
+  location: string | null;
+  resumeUrl: string | null;
 }) {
   const emailIsPlaceholder = isPlaceholderEmail(email);
 
@@ -31,8 +35,22 @@ export function ContactMethods({
           {email}
         </a>
 
-        {socials.length > 0 ? (
+        {location ? <p className="text-sm text-ink-muted">{location}</p> : null}
+
+        {socials.length > 0 || resumeUrl ? (
           <ul className="flex flex-col gap-2 border-t border-border pt-4">
+            {resumeUrl ? (
+              <li>
+                <a
+                  href={resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-ink-secondary transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
+                >
+                  {RESUME_LABEL}
+                </a>
+              </li>
+            ) : null}
             {socials.map((social) => (
               <li key={social.href}>
                 <a

@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Container, Section } from "@/components/ui/container";
 import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icons";
-import { SITE_CORE_MESSAGE } from "@/data/site";
+import { getHomeContent } from "@/lib/sanity/content";
 
-export function FinalCta() {
+export async function FinalCta() {
+  const { finalCta } = await getHomeContent();
+
   return (
     <Section id="get-started" labelledBy="final-cta-title">
       <Container>
@@ -18,21 +20,20 @@ export function FinalCta() {
               id="final-cta-title"
               className="max-w-2xl text-2xl font-semibold text-ink sm:text-3xl lg:text-4xl"
             >
-              Have a problem worth automating?
+              {finalCta.title}
             </h2>
 
             <p className="max-w-xl text-base leading-relaxed text-ink-secondary">
-              {SITE_CORE_MESSAGE} Describe the workflow and I&apos;ll tell you honestly what an
-              agent can and cannot do about it.
+              {finalCta.description}
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row">
               <Button href="/contact" size="lg">
-                Start a project
+                {finalCta.primaryLabel}
                 <ArrowUpRightIcon className="text-[1.1rem]" />
               </Button>
               <Button href="/work" variant="outline" size="lg">
-                Review previous work
+                {finalCta.secondaryLabel}
                 <ArrowRightIcon className="text-[1.1rem]" />
               </Button>
             </div>

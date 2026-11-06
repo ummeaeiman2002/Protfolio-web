@@ -2,6 +2,7 @@ import { ContactForm } from "@/components/contact/contact-form";
 import { ContactMethods } from "@/components/contact/contact-methods";
 import { Container, Section } from "@/components/ui/container";
 import { SectionHeading } from "@/components/ui/section-heading";
+import { RESUME_URL } from "@/data/site";
 import { buildMetadata } from "@/lib/metadata";
 import { getSiteSettings } from "@/lib/sanity/content";
 
@@ -14,6 +15,7 @@ export const metadata = buildMetadata({
 
 export default async function ContactPage() {
   const site = await getSiteSettings();
+  const resumeUrl = site.resumeUrl ?? RESUME_URL;
 
   return (
     <Section divided={false} className="pt-16 sm:pt-20 lg:pt-24">
@@ -28,7 +30,12 @@ export default async function ContactPage() {
 
         <div className="grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
           <ContactForm email={site.email} />
-          <ContactMethods email={site.email} socials={site.socials} />
+          <ContactMethods
+            email={site.email}
+            socials={site.socials}
+            location={site.location}
+            resumeUrl={resumeUrl}
+          />
         </div>
       </Container>
     </Section>

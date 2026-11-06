@@ -44,6 +44,8 @@ export const siteSettingsQuery = defineQuery(
     description,
     email,
     availability,
+    location,
+    "resumeUrl": resume.asset->url,
     "socials": coalesce(socials, []),
     "profilePhoto": profilePhoto{ "url": asset->url, alt },
     "ogBanner": ogBanner{ "url": asset->url, alt }

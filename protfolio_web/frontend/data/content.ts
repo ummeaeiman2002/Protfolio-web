@@ -94,7 +94,7 @@ export const STUDIO_PANEL = {
   title: "The Studio",
   status: "Online",
   name: "AI STUDIO",
-  tagline: "Python development and agentic AI engineering by Umm E Aeiman.",
+  tagline: "Python development and AI automation engineering by Umm E Aeiman.",
   description:
     "The studio builds Python backends, AI agents, workflow automation and complete AI-powered products for founders, teams and growing businesses.",
   builds: [
@@ -270,7 +270,7 @@ export const SECTION_HEADINGS = {
   },
   about: {
     titleLead: "I'm a",
-    titleHighlight: "Python & Agentic AI Engineer",
+    titleHighlight: "Python & AI Automation Engineer",
     titleTail: "who builds systems, not just demos.",
   },
   building: {
@@ -279,11 +279,11 @@ export const SECTION_HEADINGS = {
       "Current Python development, agentic AI builds and automation work — only activities that are verified and ready to share are listed here.",
   },
   finalCta: {
-    title: "Have a problem worth automating?",
+    title: "Looking for a Python developer who ships?",
     description:
-      "Describe the workflow and I'll tell you honestly what an agent can and cannot do about it.",
-    primaryLabel: "Start a project",
-    secondaryLabel: "Review previous work",
+      "I'm open to Python Developer and AI Automation Engineer roles. Send the problem, the stack or the job description and I'll reply with how I'd approach it.",
+    primaryLabel: "Get in touch",
+    secondaryLabel: "Review my work",
   },
 } as const;
 
@@ -292,7 +292,7 @@ export const SECTION_HEADINGS = {
  */
 export const ABOUT_CONTENT = {
   paragraphs: [
-    `${SITE_NAME} is a Python developer and agentic AI engineer who designs AI agents, Python services, automation workflows and AI-powered applications — and writes the code that makes them run. That includes the agent logic, the Python backend it talks to, the data it reads and the interface people actually use.`,
+    `${SITE_NAME} is a Python developer and AI automation engineer who designs Python services, automation workflows, AI agents and AI-powered applications — and writes the code that makes them run. That includes the agent logic, the Python backend it talks to, the data it reads and the interface people actually use.`,
     "The work starts with the problem, not the model. We define what “better” means in measurable terms, choose an architecture that can be operated safely, then build it until it holds up against real inputs.",
   ],
   callout: SITE_CORE_MESSAGE,
@@ -302,5 +302,5 @@ export const ABOUT_CONTENT = {
     "Plain-language communication about what the system does",
     "Validation, failure handling and tests treated as part of the feature",
   ],
-  caption: `${SITE_NAME} — Founder & Lead Engineer`,
+  caption: `${SITE_NAME} — Python Developer & AI Automation Engineer`,
 } as const;

@@ -4,13 +4,19 @@ import { Container } from "@/components/ui/container";
 import { MailIcon } from "@/components/ui/icons";
 import { Notice } from "@/components/ui/notice";
 import { FOOTER_NAV } from "@/data/navigation";
-import { FOOTER_NOTE, PLACEHOLDER_NOTICE } from "@/data/site";
+import {
+  FOOTER_NOTE,
+  PLACEHOLDER_NOTICE,
+  RESUME_LABEL,
+  RESUME_URL,
+} from "@/data/site";
 import { getSiteSettings } from "@/lib/sanity/content";
 import { isPlaceholderEmail } from "@/lib/utils";
 
 export async function Footer() {
   const site = await getSiteSettings();
   const emailIsPlaceholder = isPlaceholderEmail(site.email);
+  const resumeUrl = site.resumeUrl ?? RESUME_URL;
 
   return (
     <footer className="border-t border-border bg-surface/40">
@@ -45,6 +51,35 @@ export async function Footer() {
                 <MailIcon className="text-[1rem]" />
                 {site.email}
               </a>
+              {site.location ? (
+                <p className="text-sm text-ink-muted">{site.location}</p>
+              ) : null}
+              {resumeUrl ? (
+                <a
+                  href={resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-ink-secondary transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
+                >
+                  {RESUME_LABEL}
+                </a>
+              ) : null}
+              {site.socials.length > 0 ? (
+                <ul className="flex flex-col gap-2">
+                  {site.socials.map((social) => (
+                    <li key={social.href}>
+                      <a
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-ink-secondary transition-colors hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple"
+                      >
+                        {social.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
               {emailIsPlaceholder ? <Notice>{PLACEHOLDER_NOTICE}</Notice> : null}
             </div>
           </div>

@@ -12,7 +12,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Contact", href: "/contact" },
 ];
 
-export const PRIMARY_CTA: NavItem = { label: "Let's Work", href: "/contact" };
+export const PRIMARY_CTA: NavItem = { label: "Hire Me", href: "/contact" };
 
 export const FOOTER_NAV: NavItem[] = [
   { label: "Home", href: "/" },

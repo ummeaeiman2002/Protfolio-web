@@ -22,8 +22,10 @@ import {
   AVAILABILITY,
   CONTACT,
   HERO,
+  LOCATION,
   OG_IMAGE,
   PROFILE_PHOTO,
+  RESUME_URL,
   SITE_CORE_MESSAGE,
   SITE_DESCRIPTION,
   SITE_NAME,
@@ -98,6 +100,8 @@ export type SiteSettings = {
   description: string;
   email: string;
   availability: string | null;
+  location: string | null;
+  resumeUrl: string | null;
   socials: { label: string; href: string }[];
   profilePhoto: ImageField;
   ogBanner: ImageField;
@@ -115,6 +119,8 @@ type RawSettings = {
   description?: string;
   email?: string;
   availability?: string;
+  location?: string;
+  resumeUrl?: string;
   socials?: RawSocial[];
   profilePhoto?: RawImage;
   ogBanner?: RawImage;
@@ -219,6 +225,8 @@ export async function getSiteSettings(): Promise<SiteSettings> {
     description: text(raw?.description, SITE_DESCRIPTION),
     email: text(raw?.email, CONTACT.email),
     availability: optionalText(raw?.availability, AVAILABILITY),
+    location: optionalText(raw?.location, LOCATION),
+    resumeUrl: optionalText(raw?.resumeUrl, RESUME_URL),
     socials,
     profilePhoto: {
       src: text(raw?.profilePhoto?.url, PROFILE_PHOTO.src),

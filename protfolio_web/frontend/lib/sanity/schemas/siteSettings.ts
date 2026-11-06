@@ -21,13 +21,15 @@ export const siteSettingsSchema = defineType({
       name: "role",
       title: "Role line",
       type: "string",
-      description: "Full role, for example: Python Developer · Agentic AI Engineer · Freelance Problem Solver.",
+      description:
+        "Full role, for example: Python Developer · AI Automation Engineer · Agentic AI Engineer.",
     }),
     defineField({
       name: "shortRole",
       title: "Short role",
       type: "string",
-      description: "Short role used next to the photo in the hero, for example: Python Developer & Agentic AI Engineer.",
+      description:
+        "Short role used next to the photo in the hero, for example: Python Developer & AI Automation Engineer.",
     }),
     defineField({
       name: "tagline",
@@ -58,7 +60,23 @@ export const siteSettingsSchema = defineType({
       name: "availability",
       title: "Availability status",
       type: "string",
-      description: "Leave empty to hide the status indicator in the hero.",
+      description:
+        "Shown as a status badge in the hero, for example: Open to Python Developer & AI Automation Engineer roles. Leave empty to hide it.",
+    }),
+    defineField({
+      name: "location",
+      title: "Location",
+      type: "string",
+      description:
+        "Shown with contact details and in the footer, for example: Lahore, Pakistan · Remote.",
+    }),
+    defineField({
+      name: "resume",
+      title: "Résumé / CV",
+      type: "file",
+      options: { accept: ".pdf" },
+      description:
+        "Upload the PDF. When present, a Download CV button appears in the hero, footer and contact page.",
     }),
     defineField({
       name: "socials",

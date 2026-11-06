@@ -48,4 +48,4 @@ export function buildMetadata({
 }
 
 export const defaultDescription =
-  `${SITE_NAME} — ${SITE_TAGLINE} Python development, custom AI agents, automation systems and AI-powered applications for founders and teams.`;
+  `${SITE_NAME} — ${SITE_TAGLINE} Python development, AI automation, custom agents and AI-powered applications for teams and businesses.`;

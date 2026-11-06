@@ -4,11 +4,13 @@ import { Tag } from "@/components/ui/badge";
 import { Container } from "@/components/ui/container";
 import { ArrowRightIcon, ArrowUpRightIcon } from "@/components/ui/icons";
 import { StatusIndicator } from "@/components/ui/status-indicator";
+import { RESUME_LABEL, RESUME_URL } from "@/data/site";
 import { getHomeContent, getSiteSettings, type StudioPanel } from "@/lib/sanity/content";
 
 export async function Hero() {
   const [home, site] = await Promise.all([getHomeContent(), getSiteSettings()]);
   const { hero } = home;
+  const resumeUrl = site.resumeUrl ?? RESUME_URL;
 
   return (
     <section className="relative overflow-hidden pb-20 pt-14 sm:pt-20 lg:pb-28 lg:pt-24">
@@ -24,16 +26,21 @@ export async function Hero() {
               <Image
                 src={hero.portrait.src}
                 alt={hero.portrait.alt}
-                width={56}
-                height={56}
+                width={64}
+                height={64}
                 priority
-                className="size-14 shrink-0 rounded-xl border border-border object-cover"
+                className="size-16 shrink-0 rounded-xl border border-border object-cover"
               />
               <span className="flex flex-col gap-1">
                 <span className="text-sm font-medium text-ink">{hero.byline.name}</span>
                 <span className="font-mono text-[0.7rem] uppercase tracking-[0.16em] text-ink-muted">
                   {hero.byline.role}
                 </span>
+                {site.location ? (
+                  <span className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-ink-muted">
+                    {site.location}
+                  </span>
+                ) : null}
               </span>
             </div>
 
@@ -52,7 +59,7 @@ export async function Hero() {
             </p>
 
             <div
-              className="animate-fade-up flex flex-col gap-3 sm:flex-row"
+              className="animate-fade-up flex flex-col gap-3 sm:flex-row sm:flex-wrap"
               style={{ animationDelay: "0.16s" }}
             >
               <Button href={hero.primaryCta.href} size="lg">
@@ -63,6 +70,12 @@ export async function Hero() {
                 {hero.secondaryCta.label}
                 <ArrowRightIcon className="text-[1.1rem]" />
               </Button>
+              {resumeUrl ? (
+                <Button href={resumeUrl} variant="outline" size="lg">
+                  {RESUME_LABEL}
+                  <ArrowRightIcon className="text-[1.1rem]" />
+                </Button>
+              ) : null}
             </div>
           </div>
 

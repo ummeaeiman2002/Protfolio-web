@@ -2,6 +2,7 @@ import { Container, Section } from "@/components/ui/container";
 import { EmptyState } from "@/components/ui/empty-state";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { ArrowUpRightIcon } from "@/components/ui/icons";
 import { getHomeContent } from "@/lib/sanity/content";
 
@@ -13,7 +14,7 @@ export async function CurrentlyBuilding() {
       <Container className="flex flex-col gap-12">
         <SectionHeading
           index="09"
-          label="Currently building"
+          label="Python & AI"
           headingId="building-title"
           title={building.title}
           description={building.description}
@@ -26,7 +27,15 @@ export async function CurrentlyBuilding() {
                 key={item.title}
                 className="flex flex-col gap-3 rounded-xl border border-border bg-surface p-6"
               >
-                <h3 className="text-base font-semibold text-ink">{item.title}</h3>
+                <div className="flex flex-wrap items-start justify-between gap-2">
+                  <h3 className="text-base font-semibold text-ink">{item.title}</h3>
+                  {item.type ? <Badge variant="purple">{item.type}</Badge> : null}
+                </div>
+                {item.period ? (
+                  <p className="font-mono text-[0.65rem] uppercase tracking-[0.16em] text-ink-muted">
+                    {item.period}
+                  </p>
+                ) : null}
                 <p className="text-sm leading-relaxed text-ink-secondary">{item.description}</p>
                 <ul className="mt-auto flex flex-wrap gap-1.5 pt-2">
                   {item.stack.map((tech) => (
@@ -51,8 +60,8 @@ export async function CurrentlyBuilding() {
           </ul>
         ) : (
           <EmptyState
-            title="Nothing public at the moment"
-            description="Verified repositories and in-progress builds will be listed here once they are ready to share. Nothing is listed until it can actually be shown."
+            title="Python & AI activity log is being updated"
+            description="Current Python projects, internships, learning and automation work will be listed here once they are verified and ready to share. Nothing is listed until it can actually be shown."
             action={
               <Button href="/work" variant="secondary" size="sm" className="mt-2">
                 See completed work

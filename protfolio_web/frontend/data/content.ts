@@ -1,14 +1,16 @@
 import { SITE_CORE_MESSAGE, SITE_NAME } from "@/data/site";
 
 export const EXPERTISE_KEYWORDS: string[] = [
+  "Python",
+  "Python Automation",
   "AI Agents",
+  "FastAPI",
   "Multi-Agent Systems",
   "Workflow Automation",
   "LLM Tooling",
   "AI-Powered Web Apps",
   "API Integrations",
   "Data-Driven Workflows",
-  "Full-Stack Delivery",
   "Agent Evaluation",
   "Prompt Orchestration",
 ];
@@ -23,23 +25,30 @@ export type Capability = {
 export const CAPABILITIES: Capability[] = [
   {
     index: "01",
+    title: "Python Engineering",
+    description:
+      "Backend services, automation scripts and data workflows written in Python and built to run unattended.",
+    points: ["FastAPI services", "API and data integrations", "Validation and error handling"],
+  },
+  {
+    index: "02",
     title: "AI Agents",
     description:
       "Agents that plan, call tools, check their own work and hand back a usable result instead of a suggestion.",
     points: ["Step-by-step planning", "Tool and API selection", "Failure handling and retries"],
   },
   {
-    index: "02",
+    index: "03",
     title: "Multi-Agent Systems",
     description:
       "Several agents with defined roles that pass work between each other, held together by an orchestration layer and shared state.",
     points: ["Role separation and handoffs", "Shared memory and state", "Supervisor and review loops"],
   },
   {
-    index: "03",
+    index: "04",
     title: "AI Applications",
     description:
-      "Complete products — interface, API, data layer and AI reasoning — built as one coherent, maintainable system.",
+      "Complete products — interface, Python backend, data layer and AI reasoning — built as one coherent, maintainable system.",
     points: ["Next.js frontends", "FastAPI services", "PostgreSQL persistence"],
   },
 ];
@@ -85,9 +94,9 @@ export const STUDIO_PANEL = {
   title: "The Studio",
   status: "Online",
   name: "AI STUDIO",
-  tagline: "Agentic AI engineering by Umm E Aeiman.",
+  tagline: "Python development and agentic AI engineering by Umm E Aeiman.",
   description:
-    "The studio builds AI agents, workflow automation and complete AI-powered products for founders, teams and growing businesses.",
+    "The studio builds Python backends, AI agents, workflow automation and complete AI-powered products for founders, teams and growing businesses.",
   builds: [
     {
       index: "01",
@@ -105,7 +114,7 @@ export const STUDIO_PANEL = {
       description: "Interface, API, data layer and reasoning in one system.",
     },
   ],
-  tags: ["AI Agents", "Multi-Agent Systems", "LLM Tooling", "Full-Stack Delivery"],
+  tags: ["Python", "AI Agents", "Multi-Agent Systems", "LLM Tooling", "Full-Stack Delivery"],
 } as const;
 
 export type ArchitectureNode = {
@@ -191,8 +200,8 @@ export const TECH_STACK: StackGroup[] = [
     items: ["Next.js 16", "React", "TypeScript", "Tailwind CSS"],
   },
   {
-    label: "Backend & AI",
-    items: ["Python", "FastAPI", "Pydantic", "LLM tooling"],
+    label: "Python & AI",
+    items: ["Python", "FastAPI", "Pydantic", "LLM tooling", "Automation"],
   },
   {
     label: "Data",
@@ -209,6 +218,8 @@ export type BuildingItem = {
   description: string;
   stack: string[];
   href?: string;
+  type?: string;
+  period?: string;
 };
 
 /**
@@ -224,12 +235,12 @@ export const CURRENTLY_BUILDING: BuildingItem[] = [];
  */
 export const SECTION_HEADINGS = {
   expertise: {
-    title: "Building intelligent software systems",
+    title: "Python, AI agents and automation",
   },
   capabilities: {
-    title: "From problem to intelligent system.",
+    title: "From Python to intelligent systems.",
     description:
-      "Each engagement is scoped around a real problem, then engineered as working software — not a slide deck about AI.",
+      "Each engagement is scoped around a real problem, then engineered as working Python and AI software — not a slide deck about AI.",
   },
   problemSolver: {
     title: "You bring the problem. I engineer the system.",
@@ -253,19 +264,19 @@ export const SECTION_HEADINGS = {
       "Five stages, each with a concrete output. You always know what exists and what comes next.",
   },
   technologyStack: {
-    title: "Built with modern technology.",
+    title: "Built with Python and modern technology.",
     description:
-      "A deliberately small stack, chosen so the whole system stays readable and maintainable.",
+      "Python services for the backend and a deliberately small frontend stack, chosen so the whole system stays readable and maintainable.",
   },
   about: {
-    titleLead: "I'm an",
-    titleHighlight: "Agentic AI Engineer",
+    titleLead: "I'm a",
+    titleHighlight: "Python & Agentic AI Engineer",
     titleTail: "who builds systems, not just demos.",
   },
   building: {
-    title: "Always building something.",
+    title: "Python & AI in progress.",
     description:
-      "Only work that is verified and ready to be shown publicly is listed here.",
+      "Current Python development, agentic AI builds and automation work — only activities that are verified and ready to share are listed here.",
   },
   finalCta: {
     title: "Have a problem worth automating?",
@@ -281,7 +292,7 @@ export const SECTION_HEADINGS = {
  */
 export const ABOUT_CONTENT = {
   paragraphs: [
-    `${SITE_NAME} designs AI agents, automation workflows and AI-powered applications — and writes the code that makes them run. That includes the agent logic, the backend it talks to, the data it reads and the interface people actually use.`,
+    `${SITE_NAME} is a Python developer and agentic AI engineer who designs AI agents, Python services, automation workflows and AI-powered applications — and writes the code that makes them run. That includes the agent logic, the Python backend it talks to, the data it reads and the interface people actually use.`,
     "The work starts with the problem, not the model. We define what “better” means in measurable terms, choose an architecture that can be operated safely, then build it until it holds up against real inputs.",
   ],
   callout: SITE_CORE_MESSAGE,

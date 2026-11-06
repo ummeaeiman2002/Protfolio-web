@@ -1,8 +1,8 @@
 export const SITE_NAME = "Umm E Aeiman";
-export const SITE_ROLE = "Agentic AI Engineer · Freelance Problem Solver";
-export const SITE_SHORT_ROLE = "Agentic AI Engineer";
-export const SITE_TAGLINE = "I build AI agents that solve real problems.";
-export const SITE_CORE_MESSAGE = "You bring the problem. I engineer the AI system.";
+export const SITE_ROLE = "Python Developer · Agentic AI Engineer · Freelance Problem Solver";
+export const SITE_SHORT_ROLE = "Python Developer & Agentic AI Engineer";
+export const SITE_TAGLINE = "I build Python systems and AI agents that solve real problems.";
+export const SITE_CORE_MESSAGE = "You bring the problem. I engineer the Python and AI system.";
 
 /**
  * Profile photo.
@@ -23,18 +23,18 @@ export const OG_IMAGE = {
   src: "/og.jpg",
   width: 1200,
   height: 630,
-  alt: `${SITE_NAME} — AI agents that solve real problems`,
+  alt: `${SITE_NAME} — Python and AI systems that solve real problems`,
 } as const;
 
 export const SITE_DESCRIPTION =
-  "Umm E Aeiman designs and fully codes AI agents, intelligent automation systems and complete AI-powered applications for founders, teams and growing businesses.";
+  "Umm E Aeiman is a Python developer and agentic AI engineer who designs and fully codes AI agents, Python services, intelligent automation systems and complete AI-powered applications for founders, teams and growing businesses.";
 
 export const HERO = {
   headlineLead: "I BUILD",
-  headlineHighlight: "AI AGENTS",
+  headlineHighlight: "PYTHON & AI SYSTEMS",
   headlineTail: "THAT SOLVE REAL PROBLEMS.",
   supporting:
-    "I design and fully code AI agents, intelligent automation systems and AI-powered applications that turn complex workflows into practical software solutions.",
+    "I design and fully code AI agents, Python services and automation systems that turn complex workflows into practical software solutions.",
   primaryCta: { label: "View My Work", href: "/work" },
   secondaryCta: { label: "Start a Project", href: "/contact" },
 } as const;

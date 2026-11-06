@@ -21,13 +21,13 @@ export const siteSettingsSchema = defineType({
       name: "role",
       title: "Role line",
       type: "string",
-      description: "Full role, for example: Agentic AI Engineer · Freelance Problem Solver.",
+      description: "Full role, for example: Python Developer · Agentic AI Engineer · Freelance Problem Solver.",
     }),
     defineField({
       name: "shortRole",
       title: "Short role",
       type: "string",
-      description: "Short role used next to the photo in the hero, for example: Agentic AI Engineer.",
+      description: "Short role used next to the photo in the hero, for example: Python Developer & Agentic AI Engineer.",
     }),
     defineField({
       name: "tagline",

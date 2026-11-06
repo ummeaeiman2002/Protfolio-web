@@ -8,6 +8,19 @@ export type Service = {
 
 export const SERVICES: Service[] = [
   {
+    slug: "python-development",
+    title: "Python development & automation",
+    summary:
+      "Python services, internal tools and automation scripts that replace manual work and are ready to run unattended.",
+    includes: [
+      "Python services and internal tools",
+      "API and database integrations",
+      "Scheduled jobs and automation workflows",
+      "Testing, logging and error handling",
+    ],
+    bestFor: "Teams that need reliable Python tooling or backend work.",
+  },
+  {
     slug: "ai-agent-development",
     title: "AI agent development",
     summary:
@@ -40,7 +53,7 @@ export const SERVICES: Service[] = [
       "A complete application — interface, backend, data layer and AI reasoning — built as one coherent, maintainable system.",
     includes: [
       "Next.js interface and design system",
-      "FastAPI service and typed contracts",
+      "Python / FastAPI service and typed contracts",
       "Database persistence",
       "Deployment and environment setup",
     ],

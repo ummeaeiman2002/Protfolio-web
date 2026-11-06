@@ -346,8 +346,10 @@ export const homePageSchema = defineType({
 
     defineField({
       name: "building",
-      title: "Currently building",
+      title: "Python & AI activities",
       type: "object",
+      description:
+        "Current Python projects, internships, learning, open-source and automation work. Only add verified activities.",
       fields: [
         defineField({ name: "title", title: "Title", type: "string" }),
         defineField({ name: "description", title: "Description", type: "text", rows: 2 }),
@@ -372,6 +374,18 @@ export const homePageSchema = defineType({
                   title: "Repository URL",
                   type: "url",
                   description: "Only if the repository is public.",
+                }),
+                defineField({
+                  name: "type",
+                  title: "Activity type",
+                  type: "string",
+                  description: "For example: Project, Internship, Learning, Open source, Automation.",
+                }),
+                defineField({
+                  name: "period",
+                  title: "Period / status",
+                  type: "string",
+                  description: "For example: 2026, Current, In progress.",
                 }),
               ],
               preview: { select: { title: "title" } },
